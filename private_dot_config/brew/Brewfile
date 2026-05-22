@@ -4,6 +4,10 @@ tap "hashicorp/tap"
 tap "ngrok/ngrok"
 # Run your GitHub Actions locally
 brew "act"
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
+# Improved shell history for zsh, bash, fish and nushell
+brew "atuin"
 # CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM
 brew "aws-sam-cli"
 # Official Amazon AWS command-line interface
@@ -14,51 +18,71 @@ brew "bat"
 brew "bitwarden-cli"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Pack, ship and run any application as a lightweight container
-brew "docker", link: false
+brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
+# Modern, maintained replacement for ls
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Replace zsh completion selection menu with fzf
+brew "fzf-tab"
 # GitHub command-line tool
 brew "gh"
 # Remote repository management made easy
 brew "ghq"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Postgres C API library
+brew "libpq"
 # Fully functional local AWS cloud stack
 brew "localstack"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Remote terminal application
+brew "mosh"
 # Open source relational database management system
 brew "mysql-client"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Libraries for security-enabled client and server applications
 brew "nss"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Rust toolchain installer
+brew "rustup"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale"
 # User interface to the TELNET protocol
 brew "telnet"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
+# Terminal multiplexer
+brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Terraform
 brew "hashicorp/tap/terraform"
-# AI Coding Agent IDE
+# Agent orchestration platform
 cask "antigravity"
 # Desktop password and login vault
 cask "bitwarden"
@@ -68,14 +92,14 @@ cask "chatgpt"
 cask "chatwork"
 # Anthropic's official Claude AI desktop app
 cask "claude"
+# Ghostty-based terminal with vertical tabs and notifications for AI coding agents
+cask "cmux"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
 # Containerized environments for coding agents
-cask "container-use"
+cask "dagger/tap/container-use"
 # Write, edit, and chat about your code with AI
 cask "cursor"
-# Universal database tool and SQL client
-cask "dbeaver-community"
 # AI-powered translator
 cask "deepl"
 # App to build and share containerised applications and microservices
@@ -84,6 +108,8 @@ cask "font-cica"
 cask "font-hackgen"
 cask "font-hackgen-nerd"
 cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Web browser
 cask "google-chrome"
 # Terminal emulator as alternative to Apple's Terminal app
@@ -98,21 +124,28 @@ cask "microsoft-office"
 cask "microsoft-teams"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# App to write, plan, collaborate, and get organised
+cask "notion"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Collaboration platform for API development
 cask "postman"
 # Control your tools with a few keystrokes
 cask "raycast"
+# MySQL/MariaDB database management
+cask "sequel-ace"
 # Team communication and collaboration software
 cask "slack"
+# View Spaces / Virtual Desktops in the menu bar
+cask "spaceman"
 # Video communication and virtual meeting platform
 cask "zoom"
-vscode "adpyke.vscode-sql-formatter"
-vscode "ahmadalli.vscode-nginx-conf"
 vscode "amiralizadeh9480.laravel-extra-intellisense"
 vscode "anthropic.claude-code"
 vscode "anysphere.cursorpyright"
+vscode "anysphere.remote-containers"
+vscode "anysphere.remote-ssh"
+vscode "anysphere.remote-wsl"
 vscode "bierner.markdown-mermaid"
 vscode "biomejs.biome"
 vscode "bmewburn.vscode-intelephense-client"
@@ -120,7 +153,6 @@ vscode "bradlc.vscode-tailwindcss"
 vscode "charliermarsh.ruff"
 vscode "christian-kohler.path-intellisense"
 vscode "codingyu.laravel-goto-view"
-vscode "cognition.devin"
 vscode "csstools.postcss"
 vscode "eamodio.gitlens"
 vscode "hashicorp.terraform"
@@ -130,19 +162,12 @@ vscode "jackiotyu.git-worktree-manager"
 vscode "mechatroner.rainbow-csv"
 vscode "medo64.render-crlf"
 vscode "mikestead.dotenv"
-vscode "mosapride.zenkaku"
+vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-ceintl.vscode-language-pack-ja"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode-remote.remote-wsl"
-vscode "ms-vscode-remote.vscode-remote-extensionpack"
 vscode "ms-vscode.makefile-tools"
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode.remote-server"
 vscode "neilbrayfield.php-docblocker"
 vscode "nuxt.mdc"
 vscode "oderwat.indent-rainbow"
@@ -150,10 +175,14 @@ vscode "onecentlin.laravel-blade"
 vscode "onecentlin.laravel5-snippets"
 vscode "pkief.material-icon-theme"
 vscode "prisma.prisma"
-vscode "ryannaddy.laravel-artisan"
 vscode "sanderronde.phpstan-vscode"
 vscode "shufo.vscode-blade-formatter"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "tamasfe.even-better-toml"
 vscode "xdebug.php-debug"
 vscode "yzhang.markdown-all-in-one"
+cargo "zellij"
+npm "@dotenvx/dotenvx"
+npm "playwright"
+npm "portless"
+npm "tsx"
