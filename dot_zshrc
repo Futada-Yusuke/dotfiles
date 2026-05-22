@@ -1,0 +1,13 @@
+# メイン設定は ~/.config/zsh/rc.d/ 配下に分割管理
+# 番号prefix順に読み込む (00-path → 20-completion → 30-zinit → 40-fzf → 41-fzf-tab → 50-functions → 90-tools)
+
+ZSH_RC_DIR="${HOME}/.config/zsh/rc.d"
+
+if [[ -d "$ZSH_RC_DIR" ]]; then
+  for f in "$ZSH_RC_DIR"/*.zsh(N); do
+    source "$f"
+  done
+  unset f
+fi
+
+unset ZSH_RC_DIR
