@@ -11,6 +11,7 @@
 | `private_dot_config/brew/Brewfile` | `~/.config/brew/Brewfile` | Homebrew パッケージ |
 | `private_dot_config/starship.toml` | `~/.config/starship.toml` | プロンプト |
 | `dot_vimrc` | `~/.vimrc` | vim 設定 |
+| `private_dot_config/nvim/` | `~/.config/nvim/` | Neovim (LazyVim) 設定 |
 | `run_once_after_brew_setup.sh.tmpl` | (実行) | 初回 brew bundle bootstrap |
 | `run_once_after_fzf_setup.sh.tmpl` | (実行) | 初回 fzf キーバインド/補完セットアップ |
 
