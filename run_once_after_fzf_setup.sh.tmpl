@@ -1,0 +1,24 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+set -euo pipefail
+
+# fzf のキーバインド / 補完を有効化 (~/.fzf.zsh を生成)
+# brew でインストールしただけだと ~/.fzf.zsh は作られないため、ここで明示実行
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Homebrew not found. Skip fzf setup."
+  exit 0
+fi
+
+FZF_INSTALL="$(brew --prefix)/opt/fzf/install"
+
+if [ ! -x "$FZF_INSTALL" ]; then
+  echo "fzf install script not found at $FZF_INSTALL. Skip."
+  exit 0
+fi
+
+# --key-bindings: Ctrl+T / Ctrl+R / Alt+C を有効化
+# --completion:   fzf による補完を有効化
+# --no-update-rc: .zshrc は chezmoi 管理なので書き換えさせない
+"$FZF_INSTALL" --key-bindings --completion --no-update-rc
+{{- end -}}

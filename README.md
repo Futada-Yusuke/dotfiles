@@ -12,6 +12,7 @@
 | `private_dot_config/starship.toml` | `~/.config/starship.toml` | プロンプト |
 | `dot_vimrc` | `~/.vimrc` | vim 設定 |
 | `run_once_after_brew_setup.sh.tmpl` | (実行) | 初回 brew bundle bootstrap |
+| `run_once_after_fzf_setup.sh.tmpl` | (実行) | 初回 fzf キーバインド/補完セットアップ |
 
 ## 新しいマシンでのセットアップ
 
@@ -24,6 +25,23 @@ chezmoi init --apply git@github.com.bashaka:bashaka-futada/dotfiles.git
 ```
 
 > `github.com.bashaka` は `~/.ssh/config` のホストエイリアス。新マシンでは SSH 鍵設定が先に必要。
+
+### apply 後に自動で行われること
+
+- `brew bundle install` (Brewfile に基づく全パッケージインストール)
+- fzf のキーバインド/補完セットアップ (`~/.fzf.zsh` 生成)
+- zinit と fzf-tab プラグインは初回 zsh 起動時に self-bootstrap
+
+### apply 後に手動で行うこと (任意)
+
+```bash
+# 既存 zsh 履歴を atuin に取り込み (推奨)
+atuin import auto
+
+# atuin サーバ同期を使う場合のみ
+atuin register -u <username> -e <email>
+atuin sync
+```
 
 ## 日常運用
 
